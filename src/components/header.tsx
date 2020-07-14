@@ -1,8 +1,13 @@
 import React, { Component, FC, FunctionComponent } from "react";
 import { Formik, useFormik } from "formik";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Header: FunctionComponent = () => {
+	const history = useHistory();
+	const setRouterPath = (binname: string) => {
+		history.push(`/Bindetails/$binname`);
+	};
 	const formik = useFormik({
 		initialValues: {
 			binName: "",
@@ -10,6 +15,7 @@ const Header: FunctionComponent = () => {
 
 		onSubmit: (values) => {
 			setName(values.binName);
+			setRouterPath(values.binName);
 		},
 	});
 
@@ -18,18 +24,24 @@ const Header: FunctionComponent = () => {
 	return (
 		<form onSubmit={formik.handleSubmit}>
 			<div className="frame">
-				<label htmlFor="binName"> Bin Name</label>{" "}
-				<input
-					id="binName"
-					name="binName"
-					type="binName"
-					onChange={formik.handleChange}
-					value={formik.values.binName}
-				/>{" "}
+				<div className="input">
+					<label htmlFor="binName"> Bin Name</label>{" "}
+					<input
+						id="binName"
+						name="binName"
+						type="binName"
+						onChange={formik.handleChange}
+						value={formik.values.binName}
+						className=".btm-sm"
+					/>{" "}
+				</div>
+
+				<p className="align">
+					<button className="btn btn-secondary btn-sm" type="button">
+						Submit
+					</button>
+				</p>
 			</div>
-			<p className="align">
-				<button type="submit"> Submit</button>
-			</p>
 		</form>
 	);
 };

@@ -3,26 +3,13 @@ import { Formik } from "formik";
 
 const BinDetails: FunctionComponent = () => {
 	return (
-		<div className="container">
-			<div className="row">
-				<div className="col-6 col-sm-3">
-					<input
-						type="text"
-						className="form-control"
-						placeholder="Bin Number"
-						aria-label="Username"
-						aria-describedby="basic-addon1"
-					></input>
+		<div className="frameDetail">
+			<p>
+				<div className="row">
+					<div className="col-1 col-sm-6">Bin Name</div>
+					<div className="col-1 col-sm-6">12-23-45</div>
 				</div>
-				<div className="col-6 col-sm-3">
-					<input
-						type="text"
-						className="form-control"
-						value="12-3-45"
-						aria-describedby="basic-addon1"
-					></input>
-				</div>
-			</div>
+			</p>
 		</div>
 	);
 };
